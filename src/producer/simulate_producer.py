@@ -4,7 +4,7 @@ import time
 import random
 from datetime import datetime
 from confluent_kafka import Producer
-from config.producer_config import KAFKA_PRODUCER_CONFIG
+from src.config.producer_config import KAFKA_PRODUCER_CONFIG
 
 def delivery_report(err, msg):
     """Called once for each message produced to indicate delivery result."""

@@ -1,9 +1,8 @@
 # consumer/consumer.py
 import json
-import time
 import random
 from confluent_kafka import Consumer, KafkaError
-from config.consumer_config import KAFKA_CONSUMER_CONFIG
+from src.config.consumer_config import KAFKA_CONSUMER_CONFIG
 
 class KafkaConsumerWorker:
     def __init__(self, topic, group_id, consumer_name):

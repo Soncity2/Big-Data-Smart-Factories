@@ -1,6 +1,6 @@
 # consumer/run_consumers.py
 import threading
-from consumer.consumer import KafkaConsumerWorker
+from src.consumer.consumer import KafkaConsumerWorker
 
 def start_consumer(topic, group_id, consumer_name):
     consumer_worker = KafkaConsumerWorker(topic, group_id, consumer_name)

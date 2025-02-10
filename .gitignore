@@ -1,0 +1,34 @@
+# Byte-compiled / cached
+__pycache__/
+*.py[cod]
+*.swp
+.DS_Store
+
+# Virtual environments
+venv/
+.env/
+*.egg-info/
+
+# Logs
+logs/
+*.log
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Kafka logs
+kafka-logs/
+zookeeper/
+zookeeper-logs/
+
+# Spark temporary files
+spark-warehouse/
+metastore_db/
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.iml
+
+# Ignore environment settings
+.env
