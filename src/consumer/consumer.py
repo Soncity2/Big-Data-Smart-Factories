@@ -7,9 +7,8 @@ import json
 
 
 class KafkaConsumerWorker:
-    def __init__(self, topic, group_id, consumer_name):
+    def __init__(self, topic, group_id):
         self.topic = topic
-        self.consumer_name = consumer_name
         # Use a copy of the consumer config and set the group id
         config = KAFKA_CONSUMER_CONFIG.copy()
         config['group.id'] = group_id
@@ -98,6 +97,6 @@ class KafkaConsumerWorker:
 
 # Example usage
 if __name__ == "__main__":
-    topic = "company_A_topic"
-    consumer_worker = KafkaConsumerWorker(topic)
+    topic = "company_B_topic"
+    consumer_worker = KafkaConsumerWorker(topic, group_id="consumer_group_1")
     consumer_worker.run()

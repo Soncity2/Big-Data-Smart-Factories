@@ -2,8 +2,8 @@
 import threading
 from src.consumer.consumer import KafkaConsumerWorker
 
-def start_consumer(topic, group_id, consumer_name):
-    consumer_worker = KafkaConsumerWorker(topic, group_id, consumer_name)
+def start_consumer(topic, group_id):
+    consumer_worker = KafkaConsumerWorker(topic, group_id)
     consumer_worker.run()
 
 if __name__ == '__main__':
@@ -17,10 +17,10 @@ if __name__ == '__main__':
     
     # Define four consumers (2 per company)
     consumers = [
-        {'topic': company_a_topic, 'group_id': company_a_group, 'consumer_name': 'Consumer_A1'},
-        {'topic': company_a_topic, 'group_id': company_a_group, 'consumer_name': 'Consumer_A2'},
-        {'topic': company_b_topic, 'group_id': company_b_group, 'consumer_name': 'Consumer_B1'},
-        {'topic': company_b_topic, 'group_id': company_b_group, 'consumer_name': 'Consumer_B2'},
+        {'topic': company_a_topic, 'group_id': company_a_group},
+        {'topic': company_a_topic, 'group_id': company_a_group},
+        {'topic': company_b_topic, 'group_id': company_b_group},
+        {'topic': company_b_topic, 'group_id': company_b_group},
     ]
     
     threads = []
