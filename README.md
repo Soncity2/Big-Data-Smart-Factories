@@ -83,34 +83,47 @@ There are two producer notebooks, one for each company, located in:
 
 Each notebook simulates IoT asset data streaming for a respective company.
 
+![image](https://github.com/user-attachments/assets/45949110-7817-4378-a103-304a7e751ea2)
+
+
 ---
 
 ### 3. Start the Consumers
 
-In a separate terminal, run:
+There is a consumer notebook located in:
+- `src/consumer/Kafka_integration.ipynb`
 
-```bash
-python src/consumer/run_consumers.py
-```
+This launches instances for both companies that indicate different sensor values from different assets
 
-This launches four consumer instances:
-- Consumer_A1
-- Consumer_A2
-- Consumer_B1
-- Consumer_B2
-
-Each subscribes to their respective Kafka topic and processes incoming data.
+![image](https://github.com/user-attachments/assets/678a1195-067c-42d3-ae66-a00f2d879b3f)
 
 ---
 
-## Customization
+## Model Training and Preprocessing
 
-- **Data Schemas:**  
-  Update the `generate_company_a_data()` and `generate_company_b_data()` functions (typically in a `simulate_producer.py`) to align with your actual sensor schema.
+![image](https://github.com/user-attachments/assets/a6ca88fa-8e1d-4173-a8ce-6bd8c4653500)
 
-- **Processing Logic:**  
-  Modify the `process_message()` function in `consumer/consumer.py` to implement your custom transformation or feature engineering logic.
+Preprocess time-series values to gain time features (`year`, `month`, `day`, `hour` and `ts_unix`). Based on each asset seperately.
 
+- **Power Consumption:**  
+  - Preprocess the input with Lag Features for Time series values;
+  - Preprocess `power_avg` into log transform to handle spike outliers better;
+  - Random Forest Regression;
+
+- **Product Count Forecast:**  
+  - Preprocess the input with Lag Features for Time series values;
+  - Random Forest Regression in Company A and Unsupervised Gradient Boosting (**Future Work**);
+
+ - **Next-State Forecast:**  
+  - Preprocess the input with Lag Features for Time series values;
+  - Random Forest Classification;
+
+ - **Item Classification:**  
+  - KMeans Clustering Grouping (K best silhouette score for each company)
+
+There is the model notebook located in:
+- `src/models/Kafka_integration.ipynb`
+- 
 ---
 
 ## License
