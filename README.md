@@ -122,8 +122,8 @@ Preprocess time-series values to gain time features (`year`, `month`, `day`, `ho
   - KMeans Clustering Grouping (K best silhouette score for each company)
 
 There is the model notebook located in:
-- `src/models/Kafka_integration.ipynb`
-- 
+- `src/models/Train-Models.ipynb`
+
 ---
 
 ## License
