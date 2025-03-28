@@ -11,16 +11,16 @@ This repository contains the consumer pipeline code for an IoT Smart Manufacturi
 Big-Data-Smart_Factories/
 ├── README.md
 ├── requirements.txt
-├── config/
-│   ├── consumer_config.py
-│   └── producer_config.py
-├── consumer/
-│   ├── __init__.py
-│   ├── consumer.py
-│   └── run_consumers.py
-└── producer/
-    ├── __init__.py
-    └── simulate_producer.py
+├── spark_model_utility.py
+└── src/
+      ├── models/
+            └──  Train-Models.ipynb
+      │
+      ├── consumer/
+      │     └── Kafka_integration.ipynb
+      └── producer/
+            ├── companyA_stream_data.ipynb
+            └── companyB_stream_data.ipynb
 
 ## Requirements
 
@@ -38,17 +38,38 @@ pip install -r requirements.txt
 
 ### 1. Start the Kafka Broker
 
-Ensure you have Kafka running on your machine or adjust the configuration files in \`config/\` accordingly.
-
-### 2. Start the Producer (Data Simulation)
-
-In one terminal, run:
+Ensure you have Kafka running on your machine or run the following code:
 
 \`\`\`bash
-python producer/simulate_producer.py
+alias cdk='cd /usr/local/kafka/kafka_2.13-3.2.1'
+cdk
 \`\`\`
 
-This script will simulate random messages for two companies based on their data schemas.
+Observe config/zookeeper.properties  file and Start ZooKeeper
+
+\`\`\`bash
+bin/zookeeper-server-start.sh    config/zookeeper.properties &
+\`\`\`
+
+Observe config/ server.properties  file and Start Kafka server
+
+\`\`\`bash
+bin/kafka-server-start.sh        config/server.properties &
+\`\`\`
+
+Create topics 'Company_A' and 'Company_B' and check if it is actually created
+
+\`\`\`bash
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic Company_A
+bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic Company_B
+bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+\`\`\`
+
+### 2. Start the Producers
+
+2 notebooks that implicate 2 companies with different assets. Datasets:
+
+![image](https://github.com/user-attachments/assets/9990f342-c4c3-463a-bc29-be121e2fdc46)
 
 ### 3. Start the Consumers
 
