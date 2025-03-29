@@ -84,7 +84,7 @@ There are two producer notebooks, one for each company, located in:
 - `src/producer/companyB_stream_data.ipynb`
 
 Each notebook simulates IoT asset data streaming for a respective company.
-
+Link to Datasets: [](https://github.com/HumanCenteredTechnology/SME-Manufacturing-Dataset)
 ![image](https://github.com/user-attachments/assets/45949110-7817-4378-a103-304a7e751ea2)
 
 
