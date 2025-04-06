@@ -2,7 +2,7 @@
 
 This repository contains the consumer pipeline code for an IoT Smart Manufacturing project. The solution uses Kafka for real-time data streaming and demonstrates how to:
 
-- Consume messages using the `kafka.Consumer` client
+- Consume messages using the `Consumer` client
 - Process messages with basic feature engineering logic
 - Run multiple producers in 2 company topics to consumers
 - Train and Test Spark Models and process results from data consumed from kafka
