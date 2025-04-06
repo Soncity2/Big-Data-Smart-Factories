@@ -33,7 +33,7 @@ Big-Data-Smart_Factories/
 
 - Python 3.x
 - Kafka broker (default: `localhost:9092`)
-- Python package: `confluent-kafka`
+- Python package: `kafka`
 
 Install dependencies:
 
